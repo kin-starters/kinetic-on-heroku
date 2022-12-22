@@ -1,0 +1,52 @@
+{
+  "name": "Kinetic on Heroku",
+  "description": "A basic Kinetic setup running on Heroku",
+  "repository": "https://github.com/kin-starters/kinetic-on-heroku",
+  "logo": "https://static.kin.org/assets/kin-logo-square-256x256.png",
+  "keywords": ["kin", "kinetic", "solana", "docker", "heroku"],
+  "stack": "container",
+  "addons": [
+    {
+      "plan": "heroku-postgresql:mini",
+      "as": "DATABASE"
+    },
+    {
+      "plan": "heroku-redis:mini",
+      "as": "REDIS"
+    }
+  ],
+  "env": {
+    "API_URL": {
+      "description": "The URL of the Kinetic API. This must be set to the URL of the Heroku app with the suffix /api. For example, https://my-kinetic-api.herokuapp.com/api",
+      "value": "https://my-kinetic-api.herokuapp.com/api"
+    },
+    "AUTH_PASSWORD_ENABLED": {
+      "description": "Enable password authentication",
+      "value": "true"
+    },
+    "AUTH_USERS": {
+      "description": "A comma separated list of users to create, in the format of <username>|<password?>|<role?>|<email?>|<avatarUrl?>",
+      "value": "admin|Kinetic1|Admin"
+    },
+    "APP_1_NAME": {
+      "description": "The name of the app with index 1",
+      "value": "App 1"
+    },
+    "APP_1_FEE_PAYER_SECRET": {
+      "description": "The secret key of the fee payer of the app with index 1",
+      "value": "UvfuF3FPqLyvS8xGjSu4AUfdsY5QvLdnin8SKBLAi3UqgbmEWCDshPY3UcxvBgRAqHLzh5Ni1eypLVZArsis6FF"
+    },
+    "JWT_SECRET": {
+      "description": "The secret key for encrypting JWT tokens",
+      "generator": "secret"
+    },
+    "LOG_LEVEL": {
+      "description": "The log level for the Kinetic API. Options are: ALL, VERBOSE, DEBUG, INFO, WARN, ERROR, FATAL, OFF",
+      "value": "ALL"
+    },
+    "SOLANA_DEVNET_MINT_KIN_AIRDROP_SECRET": {
+      "description": "The secret key for the Kin Devnet Airdrop account",
+      "value": "UvfuF3FPqLyvS8xGjSu4AUfdsY5QvLdnin8SKBLAi3UqgbmEWCDshPY3UcxvBgRAqHLzh5Ni1eypLVZArsis6FF"
+    }
+  }
+}
