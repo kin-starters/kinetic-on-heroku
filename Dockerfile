@@ -1,1 +1,1 @@
-FROM ghcr.io/kin-labs/kinetic:1.0.0-rc.14
+FROM ghcr.io/kin-labs/kinetic:1.0.0-rc.15
